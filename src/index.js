@@ -1,37 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import Home from './pages/Home';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Product from './pages/Product';
-import Cart from './pages/Cart';
-import MainContext from './CartContext/MainContext';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import Home from "./pages/Home";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Products from "./pages/Products";
+import Cart from "./pages/Cart";
+import MainContext from "./CartContext/MainContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-let router=createBrowserRouter([
-  //Home Page
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+let router = createBrowserRouter([
   {
-    path:'/', //http://localhost:3000/
-    element:<Home/>
-  },
-  //Product Page
-  {
-    path:"/product", //http://localhost:3000/product
-    element:<Product/>
+    path: "/",
+    element: <Home />,
   },
   {
-    path:'/cart',  //  ttp://localhost:3000/cart
-    element:<Cart/>
-  }
-
-])
+    path: "/product",
+    element: <Products />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
+  },
+]);
 
 root.render(
   <React.StrictMode>
     <MainContext>
-       <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </MainContext>
   </React.StrictMode>
 );
